@@ -1,0 +1,6 @@
+maintainer "Peritor GmbH"
+maintainer_email "scalarium@peritor.com"
+description "Install & configure Pound"
+version "0.1"
+recipe "pound::install", "Install Pound"
+recipe "pound::configure", "Configure Pound"
