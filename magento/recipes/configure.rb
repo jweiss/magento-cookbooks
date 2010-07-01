@@ -13,4 +13,9 @@ node[:deploy].each do |application, deploy|
       File.exists?("#{deploy[:deploy_to]}/current/app/etc/local.xml")
     end
   end
+  
+  execute "ensure correct permissions" do
+    command "chown -R deploy:www-data #{deploy[:deploy_to]} && chmod -R g+rw #{deploy[:deploy_to]}"
+    action :run
+  end
 end
