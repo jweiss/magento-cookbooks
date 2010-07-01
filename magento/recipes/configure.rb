@@ -10,7 +10,7 @@ node[:deploy].each do |application, deploy|
     variables(:database => deploy[:database])
     
     only_if do
-      File.directory?("#{deploy[:deploy_to]}/current/app/etc/local.xml")
+      File.exists?("#{deploy[:deploy_to]}/current/app/etc/local.xml")
     end
   end
 end
